@@ -31,7 +31,7 @@ body {
     mask: radial-gradient(circle, transparent 40%, black 41%);
     -webkit-mask: radial-gradient(circle, transparent 40%, black 41%);
     animation: none; /* Ensure no animation initially */
-    transition: transform 0.5s ease;
+    transition: transform 1s ease;
 }
 
 /* Spin effect on hover */
@@ -46,5 +46,19 @@ body {
     }
     to {
         transform: rotate(360deg);
+    }
+}
+/* Anti-clockwise rotation when hover is removed */
+.wheel-container:not(:hover) .ring {
+    animation: spinCounterClockwise 2s ease-in-out;
+}
+
+/* Anti-clockwise animation */
+@keyframes spinCounterClockwise {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
     }
 }
