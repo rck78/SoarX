@@ -1,0 +1,50 @@
+/* Basic styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+}
+
+/* Wheel container */
+.wheel-container {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The ring */
+.ring {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #e74c3c 0% 25%,  /* Red quarter */
+        #f39c12 25% 50%, /* Orange quarter */
+        #27ae60 50% 75%, /* Green quarter */
+        #3498db 75% 100% /* Blue quarter */
+    );
+    mask: radial-gradient(circle, transparent 40%, black 41%);
+    -webkit-mask: radial-gradient(circle, transparent 40%, black 41%);
+    animation: none; /* Ensure no animation initially */
+    transition: transform 0.5s ease;
+}
+
+/* Spin effect on hover */
+.wheel-container:hover .ring {
+    animation: spin 2s linear infinite;
+}
+
+/* Spin animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
